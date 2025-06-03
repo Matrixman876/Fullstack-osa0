@@ -1,4 +1,4 @@
-# Diagram: Creating a New Note (non-SPA version)
+# Diagram: Creating a New Note 
 
 ```mermaid
 sequenceDiagram
