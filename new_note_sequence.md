@@ -1,33 +1,33 @@
-# Kaavio: Uuden muistion luominen 
+# Diagram: Creating a New Note (non-SPA version)
 
 ```mermaid
 sequenceDiagram
- participant browser
- participant server
+    participant browser
+    participant server
 
-    selain->>palvelin: GET https://studies.cs.helsinki.fi/exampleapp/notes
- aktivoi palvelin
- palvelin-->>selain: HTML-dokumentti
- deaktivoi palvelin
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    activate server
+    server-->>browser: HTML document
+    deactivate server
 
-    selain->>palvelin: GET https://studies.cs.helsinki.fi/exampleapp/main.css
- aktivoi palvelin
- palvelin-->>selain: CSS-tiedosto
- deaktivoi palvelin
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate server
+    server-->>browser: CSS file
+    deactivate server
 
-    selain->>palvelin: GET https://studies.cs.helsinki.fi/exampleapp/main.js
- aktivoi palvelin
- palvelin-->>selain: JavaScript-tiedosto
- deaktivoi palvelin
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+    activate server
+    server-->>browser: JavaScript file
+    deactivate server
 
-    Huomaa selaimen oikealla puolella: JS suoritetaan selaimessa ja odotetaan lomakkeen lähettämistä.
+    Note right of browser: JS runs in browser and waits for form submission
 
-    selain->>palvelin: POST https://studies.cs.helsinki.fi/exampleapp/new_note lomakkeen tiedoilla
- aktivoi palvelin
- palvelin-->>selain: Uudelleenohjaus osoitteeseen /notes
- deaktivoi palvelin.
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note with form data
+    activate server
+    server-->>browser: Redirect to /notes
+    deactivate server
 
-    selain->>palvelin: GET https://studies.cs.helsinki.fi/exampleapp/notes
- aktivoi palvelin
- palvelin-->>selain: Päivitetty HTML uudella muistiinpanolla
- deaktivoi palvelin
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    activate server
+    server-->>browser: Updated HTML with new note
+    deactivate server
